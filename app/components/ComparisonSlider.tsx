@@ -2,13 +2,14 @@
 
 import * as React from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { GripVertical } from "lucide-react";
+import { GripVertical, MoveRight } from "lucide-react";
 import { clsx } from "clsx";
 
 import Image from "next/image";
 
 export const ComparisonSlider = () => {
-  const [sliderPosition, setSliderPosition] = React.useState(50);
+  const [sliderPosition, setSliderPosition] = React.useState(15);
+  const [hasInteracted, setHasInteracted] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const isDragging = React.useRef(false);
 
@@ -24,6 +25,7 @@ export const ComparisonSlider = () => {
 
   const updateSlider = (clientX: number) => {
     if (containerRef.current) {
+      if (!hasInteracted) setHasInteracted(true);
       const rect = containerRef.current.getBoundingClientRect();
       const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
       const percentage = (x / rect.width) * 100;
@@ -150,6 +152,16 @@ export const ComparisonSlider = () => {
         <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.3)]">
           <GripVertical className="w-5 h-5 text-black" />
         </div>
+        
+        {/* Pulsing Arrow Hint */}
+        {!hasInteracted && (
+           <div className="absolute top-1/2 -translate-y-1/2 left-8 flex items-center gap-2 pointer-events-none animate-pulse">
+             <div className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-xl">
+               <span className="text-xs font-medium whitespace-nowrap">Slide to reveal</span>
+               <MoveRight className="w-4 h-4 animate-bounce-x" />
+             </div>
+           </div>
+        )}
       </div>
     </div>
   );
