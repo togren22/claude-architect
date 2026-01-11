@@ -156,7 +156,7 @@ export const ComparisonSlider = () => {
         {/* Pulsing Arrow Hint */}
         {!hasInteracted && (
            <div className="absolute top-1/2 -translate-y-1/2 left-8 flex items-center gap-2 pointer-events-none animate-pulse">
-             <div className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-xl">
+             <div className="bg-neutral-900/60 backdrop-blur-md border border-neutral-800/50 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-xl">
                <span className="text-xs font-medium whitespace-nowrap">Slide to reveal</span>
                <MoveRight className="w-4 h-4 animate-bounce-x" />
              </div>
