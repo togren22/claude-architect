@@ -5,6 +5,8 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { GripVertical } from "lucide-react";
 import { clsx } from "clsx";
 
+import Image from "next/image";
+
 export const ComparisonSlider = () => {
   const [sliderPosition, setSliderPosition] = React.useState(50);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -57,21 +59,31 @@ export const ComparisonSlider = () => {
       {/* Right Side: The Structure (Background) */}
       <div className="absolute inset-0 flex">
         {/* We push the content to the right so it stays fixed as we reveal it */}
-        <div className="w-full h-full bg-neutral-950 flex flex-col items-center justify-center p-8 overflow-hidden">
-          <div className="w-full h-full max-w-2xl relative flex flex-col">
-            <div className="absolute top-4 right-4 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/20 z-10">
+        <div className="w-full h-full bg-neutral-950 flex flex-col items-center justify-center overflow-hidden relative">
+          {/* Full Height Background Image */}
+          <div className="absolute inset-0 z-0">
+             <Image 
+                src="/structure.png" 
+                alt="Structure" 
+                fill
+                className="object-cover opacity-80"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-60" />
+          </div>
+
+          <div className="w-full h-full max-w-4xl relative flex flex-col z-10 p-8">
+            <div className="absolute top-4 right-4 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/20 z-10 backdrop-blur-sm">
               The Structure
             </div>
             
-            <div className="grid grid-cols-2 gap-4 h-full">
-              {/* Code Block */}
-              <div className="bg-neutral-900/50 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-hidden border border-neutral-800">
+            {/* Code Block Floating Overlay */}
+            <div className="absolute bottom-8 left-8 max-w-md w-full bg-neutral-900/80 backdrop-blur-md rounded-lg p-4 font-mono text-xs text-neutral-300 border border-neutral-800 shadow-2xl">
                 <div className="flex gap-1.5 mb-4">
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                 </div>
-                <pre>
+                <pre className="overflow-x-auto">
                   <span className="text-purple-400">import</span> rhinoscriptsyntax <span className="text-purple-400">as</span> rs{'\n\n'}
                   <span className="text-blue-400">def</span> <span className="text-yellow-200">create_truss_bridge</span>(length, height):{'\n'}
                   {'  '}p1 = [<span className="text-orange-300">0</span>, <span className="text-orange-300">0</span>, <span className="text-orange-300">0</span>]{'\n'}
@@ -84,16 +96,6 @@ export const ComparisonSlider = () => {
                   {'    '}pt = [x, <span className="text-orange-300">0</span>, <span className="text-orange-300">0</span>]{'\n'}
                   {'    '}rs.AddPoint(pt)
                 </pre>
-              </div>
-
-              {/* 3D Placeholder */}
-              <div className="relative bg-neutral-900/50 rounded-lg border border-neutral-800 overflow-hidden flex items-center justify-center">
-                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]" />
-                 <div className="relative w-32 h-16 border-2 border-blue-500/50 transform rotate-12 bg-blue-500/10 skew-x-12" />
-                 <div className="absolute bottom-4 left-4 text-xs font-mono text-neutral-500">
-                    bridge_structure_v2.3dm
-                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -110,18 +112,27 @@ export const ComparisonSlider = () => {
            <div className="absolute top-4 left-4 bg-neutral-200 text-neutral-600 px-3 py-1 rounded-full text-xs font-mono border border-neutral-300 z-10">
               The Slop
             </div>
-           <div className="max-w-2xl w-full text-left space-y-6 opacity-60 blur-[0.5px] select-none pointer-events-none">
+           <div className="max-w-3xl w-full text-left space-y-4 opacity-60 blur-[1px] select-none pointer-events-none overflow-hidden h-full flex flex-col justify-center">
              <div className="flex items-start gap-4">
                 <div className="w-8 h-8 rounded bg-green-700/80 flex-shrink-0" />
-                <div className="space-y-2 font-serif text-lg leading-relaxed text-neutral-800">
+                <div className="space-y-1 font-serif text-base leading-[1.2] text-gray-500">
                    <p>
-                     Certainly! Here is a comprehensive breakdown of the bridge structure. A bridge is typically a structure built to span a physical obstacle (such as a body of water, valley, road, or rail) without blocking the way underneath.
+                     Certainly! Here is a comprehensive breakdown of the bridge structure. A bridge is typically a structure built to span a physical obstacle (such as a body of water, valley, road, or rail) without blocking the way underneath. It is constructed for the purpose of providing passage over the obstacle.
                    </p>
                    <p>
-                     It is constructed for the purpose of providing passage over the obstacle, which is usually something that is otherwise difficult or impossible to cross. There are many different designs regarding structural components, depending on the nature of the terrain.
+                     However, one must also consider the socio-economic impact of the bridge. It connects communities, facilitates trade, and serves as a monument to human engineering. The aesthetic qualities of the bridge are also of significant importance, as it must blend seamlessly with the surrounding environment.
                    </p>
                    <p>
-                     Furthermore, the structural integrity is paramount. We must consider the tensile strength of the materials used, whether it be steel, concrete, or perhaps a composite alloy. The load-bearing capacity must be sufficient to support not only its own weight but also the weight of the traffic it is intended to carry.
+                     In terms of materials, we have a plethora of options. Steel offers high tensile strength, while concrete provides excellent compressive strength. A hybrid approach often yields the best results. Furthermore, the maintenance schedule must be rigorously adhered to in order to ensure longevity.
+                   </p>
+                   <p>
+                     Let us not forget the environmental impact assessments that must be conducted prior to construction. These assessments evaluate the potential effects on local flora and fauna. Mitigation strategies must be implemented to minimize disruption to the ecosystem. The bridge is not merely a physical structure but a complex integration of engineering, environmental science, and urban planning.
+                   </p>
+                   <p>
+                     Additionally, the funding for such a project is a complex matter involving public and private partnerships. Stakeholder engagement is crucial for the success of the project. Regular community meetings should be held to address concerns and gather feedback. The bridge stands as a testament to our ability to overcome physical barriers and connect with one another.
+                   </p>
+                   <p>
+                     Therefore, when designing a bridge, one must take a holistic approach. It is not sufficient to simply calculate loads and stresses. One must also consider the human element. How will people interact with the bridge? Will it be pedestrian-friendly? These are the questions that must be answered.
                    </p>
                 </div>
              </div>

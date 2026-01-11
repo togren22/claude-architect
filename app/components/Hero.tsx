@@ -30,7 +30,28 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold tracking-tight text-white max-w-4xl"
         >
-          Don't Settle for <span className="text-neutral-500">Slop.</span>
+          Don't Settle for{" "}
+          <motion.span
+            className="text-neutral-500 inline-block"
+            animate={{
+              x: [0, -2, 2, -1, 1, 0],
+              filter: [
+                "blur(0px)",
+                "blur(2px)",
+                "blur(0px)",
+                "blur(1px)",
+                "blur(0px)",
+              ],
+            }}
+            transition={{
+              duration: 0.4,
+              repeat: Infinity,
+              repeatDelay: 3,
+              ease: "easeInOut",
+            }}
+          >
+            Slop.
+          </motion.span>
         </motion.h1>
 
         <motion.p
