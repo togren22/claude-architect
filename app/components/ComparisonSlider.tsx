@@ -51,7 +51,7 @@ export const ComparisonSlider = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-5xl h-[500px] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 select-none group cursor-ew-resize"
+      className="relative w-full max-w-5xl h-[350px] sm:h-[500px] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 select-none group cursor-ew-resize touch-none"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onClick={(e) => updateSlider(e.clientX)}
@@ -77,7 +77,7 @@ export const ComparisonSlider = () => {
             </div>
             
             {/* Code Block Floating Overlay */}
-            <div className="absolute bottom-8 left-8 max-w-md w-full bg-neutral-900/80 backdrop-blur-md rounded-lg p-4 font-mono text-xs text-neutral-300 border border-neutral-800 shadow-2xl">
+            <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 max-w-[90%] sm:max-w-md w-full bg-neutral-900/80 backdrop-blur-md rounded-lg p-3 sm:p-4 font-mono text-[10px] sm:text-xs text-neutral-300 border border-neutral-800 shadow-2xl z-10">
                 <div className="flex gap-1.5 mb-4">
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
@@ -103,7 +103,7 @@ export const ComparisonSlider = () => {
 
       {/* Left Side: The Slop (Foreground) - Clipped */}
       <div
-        className="absolute inset-0 bg-neutral-100 text-neutral-900 overflow-hidden"
+        className="absolute inset-0 bg-neutral-100 text-neutral-900 overflow-hidden z-20"
         style={{
           clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
         }}
@@ -142,7 +142,7 @@ export const ComparisonSlider = () => {
 
       {/* Slider Handle */}
       <div
-        className="absolute inset-y-0 w-1 bg-white cursor-ew-resize hover:scale-x-150 transition-transform z-20"
+        className="absolute inset-y-0 w-1 bg-white cursor-ew-resize hover:scale-x-150 transition-transform z-30"
         style={{ left: `${sliderPosition}%` }}
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
