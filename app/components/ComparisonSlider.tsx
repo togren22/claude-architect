@@ -77,7 +77,7 @@ export const ComparisonSlider = () => {
             </div>
             
             {/* Code Block Floating Overlay */}
-            <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 max-w-[90%] sm:max-w-md w-full bg-neutral-900/80 backdrop-blur-md rounded-lg p-3 sm:p-4 font-mono text-[10px] sm:text-xs text-neutral-300 border border-neutral-800 shadow-2xl z-10">
+            <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 max-w-[75%] sm:max-w-md w-full bg-neutral-900/80 backdrop-blur-md rounded-lg p-2 sm:p-4 font-mono text-[9px] sm:text-xs text-neutral-300 border border-neutral-800 shadow-2xl z-10">
                 <div className="flex gap-1.5 mb-4">
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
