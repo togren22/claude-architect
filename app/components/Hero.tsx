@@ -1,0 +1,72 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Terminal } from "lucide-react";
+import { ComparisonSlider } from "./ComparisonSlider";
+
+export const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute -top-[40%] -left-[20%] w-[70%] h-[70%] rounded-full bg-neutral-900/20 blur-[120px]" />
+        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-neutral-800/10 blur-[100px]" />
+      </div>
+
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-8 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-sm text-neutral-400 mb-4"
+        >
+          <Terminal className="w-4 h-4" />
+          <span>v2.0 Now Available</span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-5xl md:text-7xl font-bold tracking-tight text-white max-w-4xl"
+        >
+          Don't Settle for <span className="text-neutral-500">Slop.</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl text-neutral-400 max-w-2xl"
+        >
+          ChatGPT guesses. Claude builds.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+        >
+          <button className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
+            Deploy Intelligence
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+          
+          <button className="px-8 py-4 bg-transparent text-white border border-neutral-800 font-semibold rounded-full hover:bg-neutral-900 transition-all">
+            Read the Docs
+          </button>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="w-full flex justify-center px-2"
+      >
+        <ComparisonSlider />
+      </motion.div>
+    </section>
+  );
+};
