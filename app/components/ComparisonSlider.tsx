@@ -72,7 +72,7 @@ export const ComparisonSlider = () => {
           </div>
 
           <div className="w-full h-full max-w-4xl relative flex flex-col z-10 p-8">
-            <div className="absolute top-4 right-4 bg-neutral-900/90 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/50 z-10 backdrop-blur-md shadow-lg font-semibold tracking-tight">
+            <div className="absolute top-4 left-4 bg-neutral-900/90 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/50 z-10 backdrop-blur-md shadow-lg font-semibold tracking-tight">
               The Structure
             </div>
             
@@ -105,11 +105,11 @@ export const ComparisonSlider = () => {
       <div
         className="absolute inset-0 bg-neutral-100 text-neutral-900 overflow-hidden z-20"
         style={{
-          clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+          clipPath: `inset(0 0 0 ${sliderPosition}%)`,
         }}
       >
         <div className="w-full h-full relative flex flex-col items-center justify-center p-8 bg-white/95">
-           <div className="absolute top-4 left-4 bg-neutral-200 text-neutral-600 px-3 py-1 rounded-full text-xs font-mono border border-neutral-300 z-10">
+           <div className="absolute top-4 right-4 bg-neutral-200 text-neutral-600 px-3 py-1 rounded-full text-xs font-mono border border-neutral-300 z-10">
               The Slop
             </div>
            <div className="max-w-3xl w-full text-left space-y-4 opacity-60 blur-[1px] select-none pointer-events-none overflow-hidden h-full flex flex-col justify-center">
