@@ -72,7 +72,7 @@ export const ComparisonSlider = () => {
           </div>
 
           <div className="w-full h-full max-w-4xl relative flex flex-col z-10 p-8">
-            <div className="absolute top-4 right-4 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/20 z-10 backdrop-blur-sm">
+            <div className="absolute top-4 right-4 bg-neutral-900/90 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/50 z-10 backdrop-blur-md shadow-lg font-semibold tracking-tight">
               The Structure
             </div>
             
