@@ -69,14 +69,24 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
         >
-          <button className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
+          <a
+            href="https://claude.ai/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2"
+          >
             Deploy Intelligence
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
           
-          <button className="px-8 py-4 bg-transparent text-white border border-neutral-800 font-semibold rounded-full hover:bg-neutral-900 transition-all">
+          <a
+            href="https://platform.claude.com/docs/en/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-transparent text-white border border-neutral-800 font-semibold rounded-full hover:bg-neutral-900 transition-all flex items-center justify-center"
+          >
             Read the Docs
-          </button>
+          </a>
         </motion.div>
       </div>
 
