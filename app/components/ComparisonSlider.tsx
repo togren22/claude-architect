@@ -134,13 +134,13 @@ function ClaudeContent({ index }: { index: number }) {
 // ─── SLOP CONTENT PER EXAMPLE ────────────────────────────────────────────────
 
 function SlopContent({ index }: { index: number }) {
-  const slopShell = "flex items-start gap-2 sm:gap-3";
+  const slopShell = "flex items-start gap-2 sm:gap-3 h-full overflow-hidden";
   const slopAvatar = (
     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-green-600/80 flex-shrink-0 mt-0.5 flex items-center justify-center">
       <span className="text-white text-[9px] sm:text-[10px]">✓</span>
     </div>
   );
-  const slopText = "text-[10px] sm:text-[11px] leading-[1.55] text-neutral-500 font-sans space-y-1.5 sm:space-y-2 select-none pointer-events-none";
+  const slopText = "text-[10px] sm:text-[11px] leading-[1.55] text-neutral-500 font-sans space-y-1.5 sm:space-y-2 select-none pointer-events-none h-full overflow-hidden";
 
   if (index === 0) {
     return (
@@ -454,7 +454,7 @@ export const ComparisonSlider = () => {
             </div>
 
             {/* Slop text — flows in the space between prompt and tags */}
-            <div className="flex-1 flex flex-col justify-start overflow-hidden" style={{ paddingTop: "120px", paddingBottom: "40px", paddingLeft: "16px", paddingRight: "16px" }}>
+            <div className="flex-1 flex flex-col justify-start overflow-hidden" style={{ paddingTop: "120px", paddingBottom: "48px", paddingLeft: "16px", paddingRight: "16px" }}>
               <SlopContent index={currentExample} />
             </div>
 
