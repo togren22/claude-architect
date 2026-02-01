@@ -138,11 +138,11 @@ export const ComparisonSlider = () => {
                 {"  "}<span className="text-purple-400">const</span> [flipped, setFlipped] = <span className="text-yellow-200">useState</span>(<span className="text-orange-300">false</span>);{"\n\n"}
                 {"  "}<span className="text-purple-400">return</span> ({"\n"}
                 {"    "}<span className="text-blue-300">{"<div"}</span> className={<span className="text-green-300">{"`card ${flipped ? 'flipped' : ''}`"}</span>}{"\n"}
-                {"          "}<span className="text-blue-300">{"onClick"}</span>={{"{"}<span className="text-purple-400">() ={">"}</span> <span className="text-yellow-200">setFlipped</span>(!flipped){"}"}>{">"}{"\n"}
+                {"          "}<span className="text-blue-300">{"onClick"}</span>={"{"}<span className="text-purple-400">{"() =>"}</span> <span className="text-yellow-200">setFlipped</span>(!flipped){"}"}<span className="text-blue-300">{">"}</span>{"\n"}
                 {"      "}<span className="text-blue-300">{"<h1>"}</span><span className="text-pink-300">Happy Birthday, Mom! 🎂</span><span className="text-blue-300">{"</h1>"}</span>{"\n"}
-                {"      "}<span className="text-blue-300">{"<p"}</span> className={<span className="text-green-300">"hint"</span>}{">"}<span className="text-neutral-500">Click to reveal your message</span><span className="text-blue-300">{"</p>"}</span>{"\n"}
+                {"      "}<span className="text-blue-300">{"<p"}</span> className={<span className="text-green-300">"hint"</span>}<span className="text-blue-300">{">"}</span><span className="text-neutral-500">Click to reveal your message</span><span className="text-blue-300">{"</p>"}</span>{"\n"}
                 {"    "}<span className="text-blue-300">{"</div>"}</span>{"\n"}
-                {"  ");}{"\n"}
+                {"  "}<span className="text-neutral-300">);</span>{"\n"}
                 {"}"}
               </pre>
             </div>
