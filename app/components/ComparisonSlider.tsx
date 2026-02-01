@@ -18,7 +18,7 @@ const examples = [
     claudeLabel: "gatsby_analysis.md",
     claudeType: "prose" as const,
     claudeTags: ["✓ Analytical", "✓ Asks a follow-up"],
-    slopTags: ["✗ Bullet points & emojis", "✗ \"Hope this helps! 😊\""],
+    slopTags: ["✗ Bullet points & emojis", '✗ "Hope this helps! 😊"'],
   },
   {
     prompt: "Draft an executive summary for our Q3 sales report",
@@ -27,6 +27,13 @@ const examples = [
     claudeTags: ["✓ Specific numbers", "✓ Clear recommendation"],
     slopTags: ["✗ Asks for data you gave it", "✗ Never writes the summary"],
   },
+  {
+    prompt: "Write a RhinoScript to generate a parametric truss bridge",
+    claudeLabel: "truss_bridge.py",
+    claudeType: "code" as const,
+    claudeTags: ["✓ Runs in Rhino", "✓ Parametric & clean"],
+    slopTags: ["✗ Explains bridges", "✗ Never writes code"],
+  },
 ];
 
 // ─── CLAUDE CONTENT PER EXAMPLE ──────────────────────────────────────────────
@@ -34,7 +41,7 @@ const examples = [
 function ClaudeContent({ index }: { index: number }) {
   if (index === 0) {
     return (
-      <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+      <div className="absolute bottom-10 left-4 sm:bottom-12 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
         <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -61,7 +68,7 @@ function ClaudeContent({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+      <div className="absolute bottom-10 left-4 sm:bottom-12 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
         <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -83,28 +90,55 @@ function ClaudeContent({ index }: { index: number }) {
     );
   }
 
+  if (index === 2) {
+    return (
+      <div className="absolute bottom-10 left-4 sm:bottom-12 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+          <span className="ml-2 text-neutral-500 text-[9px] font-mono">Q3_Executive_Summary.md</span>
+        </div>
+        <div className="p-3 sm:p-4 text-[10px] sm:text-[11px] leading-[1.7] text-neutral-300 space-y-3">
+          <p>
+            <span className="text-blue-400 font-semibold">Q3 Executive Summary</span>
+          </p>
+          <p>
+            Revenue grew 12% YoY to $4.2M, driven primarily by the enterprise segment (+23%). Customer acquisition cost decreased 8% following the revised onboarding flow shipped in August.
+          </p>
+          <p>
+            Churn ticked up slightly in the SMB tier (4.1% vs 3.6% in Q2). Root cause analysis points to a gap in the 30-day onboarding experience — recommendation is to prioritize the guided setup feature currently in sprint.
+          </p>
+          <p>
+            <span className="text-green-400 font-semibold">Key metric:</span> <span className="text-neutral-400">Net Retention Rate held at 118%</span>, indicating strong expansion revenue despite the SMB churn.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // index === 3: Rhino
   return (
-    <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+    <div className="absolute bottom-10 left-4 sm:bottom-12 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
       <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="ml-2 text-neutral-500 text-[9px] font-mono">Q3_Executive_Summary.md</span>
+        <span className="ml-2 text-neutral-500 text-[9px] font-mono">truss_bridge.py</span>
       </div>
-      <div className="p-3 sm:p-4 text-[10px] sm:text-[11px] leading-[1.7] text-neutral-300 space-y-3">
-        <p>
-          <span className="text-blue-400 font-semibold">Q3 Executive Summary</span>
-        </p>
-        <p>
-          Revenue grew 12% YoY to $4.2M, driven primarily by the enterprise segment (+23%). Customer acquisition cost decreased 8% following the revised onboarding flow shipped in August.
-        </p>
-        <p>
-          Churn ticked up slightly in the SMB tier (4.1% vs 3.6% in Q2). Root cause analysis points to a gap in the 30-day onboarding experience — recommendation is to prioritize the guided setup feature currently in sprint.
-        </p>
-        <p>
-          <span className="text-green-400 font-semibold">Key metric:</span> <span className="text-neutral-400">Net Retention Rate held at 118%</span>, indicating strong expansion revenue despite the SMB churn.
-        </p>
-      </div>
+      <pre className="p-3 sm:p-4 overflow-x-auto font-mono text-[9px] sm:text-[11px] leading-[1.7] text-neutral-300">
+        <span className="text-purple-400">import</span> <span className="text-green-300">rhinoscriptsyntax</span> <span className="text-purple-400">as</span> rs{"\n\n"}
+        <span className="text-blue-400">def</span> <span className="text-yellow-200">create_truss</span>(<span className="text-orange-300">length, height, subdivisions</span>):{"\n"}
+        {"  "}<span className="text-neutral-500"># Generate bottom and top chord points</span>{"\n"}
+        {"  "}<span className="text-purple-400">for</span> i <span className="text-purple-400">in</span> <span className="text-yellow-200">range</span>(subdivisions + <span className="text-orange-300">1</span>):{"\n"}
+        {"    "}x = i * (length / subdivisions){"\n"}
+        {"    "}bot = rs.<span className="text-yellow-200">CreatePoint3D</span>(x, <span className="text-orange-300">0</span>, <span className="text-orange-300">0</span>){"\n"}
+        {"    "}top = rs.<span className="text-yellow-200">CreatePoint3D</span>(x, <span className="text-orange-300">0</span>, height){"\n\n"}
+        {"  "}<span className="text-neutral-500"># Pipe the chords</span>{"\n"}
+        {"  "}base = rs.<span className="text-yellow-200">AddPolyline</span>(bottom_pts){"\n"}
+        {"  "}rs.<span className="text-yellow-200">AddPipe</span>(base, <span className="text-orange-300">0</span>, <span className="text-orange-300">0.3</span>){"\n"}
+        {"  "}rs.<span className="text-yellow-200">AddPipe</span>(top_chord, <span className="text-orange-300">0</span>, <span className="text-orange-300">0.3</span>)
+      </pre>
     </div>
   );
 }
@@ -114,12 +148,12 @@ function ClaudeContent({ index }: { index: number }) {
 function SlopContent({ index }: { index: number }) {
   if (index === 0) {
     return (
-      <div className="mt-16 sm:mt-20 max-w-xl w-full mx-auto overflow-hidden">
+      <div className="mt-8 sm:mt-14 pb-8 sm:pb-10 max-w-xl w-full mx-auto overflow-hidden">
         <div className="flex items-start gap-3">
           <div className="w-7 h-7 rounded-full bg-green-600/80 flex-shrink-0 mt-0.5 flex items-center justify-center">
             <span className="text-white text-[10px]">✓</span>
           </div>
-          <div className="text-[11px] sm:text-[12px] leading-[1.65] text-neutral-500 font-sans space-y-2.5 select-none pointer-events-none" style={{ opacity: 0.75 }}>
+          <div className="text-[10px] sm:text-[11px] leading-[1.6] text-neutral-500 font-sans space-y-2 select-none pointer-events-none" style={{ opacity: 0.75 }}>
             <p>
               Great question! I'd be happy to help you create a birthday card website for your mom — what a thoughtful gesture! A birthday card website is a wonderful way to show your appreciation, and there are so many creative directions you could take this.
             </p>
@@ -127,13 +161,13 @@ function SlopContent({ index }: { index: number }) {
               First, let's think about what makes a great birthday card website. You'll want to consider the overall <em>theme</em> — is your mom into flowers? Travel? Cooking? The theme will inform your color palette, imagery, and tone. It's really important to personalize it, because — as any marketing expert will tell you — personalization is key to emotional engagement.
             </p>
             <p>
-              In terms of <em>structure</em>, I'd recommend starting with a clean landing page. You could include a hero section with a warm greeting — something like "Happy Birthday, Mom!" — and then maybe a scrolling section with some family photos or memories. A timeline of her life milestones could be a really nice touch, though that would require gathering quite a bit of information first.
+              In terms of <em>structure</em>, I'd recommend starting with a clean landing page. You could include a hero section with a warm greeting, and then maybe a scrolling section with some family photos or memories. A timeline of her life milestones could be a really nice touch, though that would require gathering quite a bit of information first.
             </p>
             <p>
-              For the <em>technical side</em>, you have a few options — you could use plain HTML and CSS, which is the simplest approach, or you could use a framework like React or Vue.js for a more dynamic experience. That said, for a simple birthday card, plain HTML is probably sufficient — though React does offer some nice benefits in terms of component reusability and state management, which could be useful if you ever wanted to expand this into something bigger down the line.
+              For the <em>technical side</em>, you have a few options — you could use plain HTML and CSS, which is the simplest approach, or you could use a framework like React or Vue.js for a more dynamic experience. That said, for a simple birthday card, plain HTML is probably sufficient.
             </p>
             <p>
-              You'll also want to think about <em>hosting</em>. There are several free options out there — GitHub Pages, Netlify, and Vercel are all popular choices. Each has its own pros and cons, so it really depends on your comfort level with the technology and how much customization you need.
+              You'll also want to think about <em>hosting</em>. There are several free options out there — GitHub Pages, Netlify, and Vercel are all popular choices. Each has its own pros and cons, so it really depends on your comfort level with the technology.
             </p>
           </div>
         </div>
@@ -143,12 +177,12 @@ function SlopContent({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <div className="mt-16 sm:mt-20 max-w-xl w-full mx-auto overflow-hidden">
+      <div className="mt-8 sm:mt-14 pb-8 sm:pb-10 max-w-xl w-full mx-auto overflow-hidden">
         <div className="flex items-start gap-3">
           <div className="w-7 h-7 rounded-full bg-green-600/80 flex-shrink-0 mt-0.5 flex items-center justify-center">
             <span className="text-white text-[10px]">✓</span>
           </div>
-          <div className="text-[11px] sm:text-[12px] leading-[1.65] text-neutral-500 font-sans space-y-2 select-none pointer-events-none" style={{ opacity: 0.75 }}>
+          <div className="text-[10px] sm:text-[11px] leading-[1.6] text-neutral-500 font-sans space-y-2 select-none pointer-events-none" style={{ opacity: 0.75 }}>
             <p>
               Great question! Let me break this down for you:
             </p>
@@ -182,27 +216,57 @@ function SlopContent({ index }: { index: number }) {
     );
   }
 
+  if (index === 2) {
+    return (
+      <div className="mt-8 sm:mt-14 pb-8 sm:pb-10 max-w-xl w-full mx-auto overflow-hidden">
+        <div className="flex items-start gap-3">
+          <div className="w-7 h-7 rounded-full bg-green-600/80 flex-shrink-0 mt-0.5 flex items-center justify-center">
+            <span className="text-white text-[10px]">✓</span>
+          </div>
+          <div className="text-[10px] sm:text-[11px] leading-[1.6] text-neutral-500 font-sans space-y-2 select-none pointer-events-none" style={{ opacity: 0.75 }}>
+            <p>
+              Sure! I'd be happy to help you draft an executive summary for your Q3 sales report. An executive summary is a really important document — it's essentially the first thing stakeholders will read, so it's crucial that it makes a strong impression.
+            </p>
+            <p>
+              Before I draft anything, it might be worth considering what the <em>key objectives</em> of the summary should be. Generally speaking, an executive summary should cover the main highlights — but of course, this can vary depending on your industry, your audience, and the specific goals of the report.
+            </p>
+            <p>
+              In terms of <em>structure</em>, most executive summaries follow a fairly standard format — an overview section, key findings, and then recommendations. That said, there's no single "right" way to structure one — some organizations prefer a more narrative approach, while others like to lead with data and metrics.
+            </p>
+            <p>
+              It's also worth noting that without the actual Q3 data — revenue figures, growth metrics, customer acquisition numbers, and so on — I wouldn't want to put specific numbers in there that might not be accurate. Could you share the underlying data or the full report?
+            </p>
+            <p>
+              Once I have that, I can definitely put something together! In the meantime, I'd also recommend looking at how previous quarters' summaries were written in your organization — consistency is important for executive-level documents.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // index === 3: Rhino slop — the original bridge essay
   return (
-    <div className="mt-16 sm:mt-20 max-w-xl w-full mx-auto overflow-hidden">
+    <div className="mt-8 sm:mt-14 pb-8 sm:pb-10 max-w-xl w-full mx-auto overflow-hidden">
       <div className="flex items-start gap-3">
         <div className="w-7 h-7 rounded-full bg-green-600/80 flex-shrink-0 mt-0.5 flex items-center justify-center">
           <span className="text-white text-[10px]">✓</span>
         </div>
-        <div className="text-[11px] sm:text-[12px] leading-[1.65] text-neutral-500 font-sans space-y-2.5 select-none pointer-events-none" style={{ opacity: 0.75 }}>
+        <div className="text-[10px] sm:text-[11px] leading-[1.6] text-neutral-500 font-sans space-y-2 select-none pointer-events-none" style={{ opacity: 0.75 }}>
           <p>
-            Sure! I'd be happy to help you draft an executive summary for your Q3 sales report. An executive summary is a really important document — it's essentially the first thing stakeholders will read, so it's crucial that it makes a strong impression.
+            Certainly! Here is a comprehensive breakdown of the bridge structure. A bridge is typically a structure built to span a physical obstacle — such as a body of water, valley, road, or rail — without blocking the way underneath. It is constructed for the purpose of providing passage over the obstacle.
           </p>
           <p>
-            Before I draft anything, it might be worth considering what the <em>key objectives</em> of the summary should be. Generally speaking, an executive summary should cover the main highlights — but of course, this can vary depending on your industry, your audience, and the specific goals of the report. You'll want to think about what matters most to your stakeholders.
+            However, one must also consider the socio-economic impact of the bridge. It connects communities, facilitates trade, and serves as a monument to human engineering. The aesthetic qualities of the bridge are also of significant importance, as it must blend seamlessly with the surrounding environment.
           </p>
           <p>
-            In terms of <em>structure</em>, most executive summaries follow a fairly standard format — an overview section, key findings, and then recommendations. That said, there's no single "right" way to structure one — some organizations prefer a more narrative approach, while others like to lead with data and metrics. It really depends on your company's culture and what your leadership team responds to best.
+            In terms of materials, we have a plethora of options. Steel offers high tensile strength, while concrete provides excellent compressive strength. A hybrid approach often yields the best results. Furthermore, the maintenance schedule must be rigorously adhered to in order to ensure longevity.
           </p>
           <p>
-            It's also worth noting that without the actual Q3 data — revenue figures, growth metrics, customer acquisition numbers, and so on — I wouldn't want to put specific numbers in there that might not be accurate. Could you share the underlying data or the full report? That way I can make sure the summary is grounded in real figures rather than making assumptions.
+            Let us not forget the environmental impact assessments that must be conducted prior to construction. These assessments evaluate the potential effects on local flora and fauna. The bridge is not merely a physical structure but a complex integration of engineering, environmental science, and urban planning.
           </p>
           <p>
-            Once I have that, I can definitely put something together! In the meantime, I'd also recommend looking at how previous quarters' summaries were written in your organization — consistency is important for executive-level documents.
+            Therefore, when designing a bridge, one must take a holistic approach. It is not sufficient to simply calculate loads and stresses. One must also consider the human element. How will people interact with the bridge? These are the questions that must be answered.
           </p>
         </div>
       </div>
@@ -373,7 +437,8 @@ export const ComparisonSlider = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-5xl h-[350px] sm:h-[500px] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 select-none group cursor-ew-resize touch-none"
+      className="relative w-full max-w-5xl h-[350px] sm:h-[500px] overflow-hidden rounded-xl border border-neutral-800 select-none group cursor-ew-resize touch-none"
+      style={{ backgroundColor: "#1e1e1c" }}
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onMouseEnter={handleMouseEnter}
@@ -404,7 +469,7 @@ export const ComparisonSlider = () => {
 
               <div className="absolute top-12 sm:top-14 left-4 sm:left-6 max-w-[60%] sm:max-w-sm">
                 <div className="backdrop-blur-sm border border-neutral-600 rounded-lg rounded-tl-none px-3 py-2 shadow-lg" style={{ backgroundColor: "rgba(42,42,39,0.85)" }}>
-                  <p className="text-neutral-300 text-[11px] sm:text-xs font-mono">
+                  <p className="text-neutral-300 text-[10px] sm:text-xs font-mono">
                     <span className="text-neutral-500">{">"} </span>
                     {example.prompt}
                   </p>
@@ -414,7 +479,7 @@ export const ComparisonSlider = () => {
               <ClaudeContent index={currentExample} />
 
               {/* Claude verdict tags */}
-              <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-6 flex flex-wrap gap-1.5 z-20">
+              <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 flex flex-wrap gap-1.5 z-20">
                 {example.claudeTags.map((tag, i) => (
                   <span key={i} className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-full border" style={{ backgroundColor: "rgba(34,197,94,0.12)", borderColor: "rgba(34,197,94,0.3)", color: "#4ade80" }}>
                     {tag}
@@ -432,14 +497,14 @@ export const ComparisonSlider = () => {
             clipPath: `inset(0 0 0 ${sliderPosition}%)`,
           }}
         >
-          <div className="w-full h-full relative flex flex-col justify-center p-6 sm:p-8" style={{ backgroundColor: "#faf8f5" }}>
+          <div className="w-full h-full relative flex flex-col justify-start p-6 sm:p-8" style={{ backgroundColor: "#faf8f5" }}>
             <div className="absolute top-4 right-4 bg-neutral-100 text-neutral-500 px-3 py-1 rounded-full text-xs font-mono border border-neutral-200 z-10">
               Other AI
             </div>
 
             <div className="absolute top-12 sm:top-14 right-4 sm:right-6 max-w-[60%] sm:max-w-sm">
               <div className="bg-white border border-neutral-200 rounded-lg rounded-tr-none px-3 py-2 shadow-sm">
-                <p className="text-neutral-500 text-[11px] sm:text-xs font-mono">
+                <p className="text-neutral-500 text-[10px] sm:text-xs font-mono">
                   <span className="text-neutral-400">{">"} </span>
                   {example.prompt}
                 </p>
@@ -449,7 +514,7 @@ export const ComparisonSlider = () => {
             <SlopContent index={currentExample} />
 
             {/* Slop verdict tags */}
-            <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-6 flex flex-wrap gap-1.5 justify-end z-20">
+            <div className="absolute bottom-3 right-4 sm:bottom-4 sm:right-6 flex flex-wrap gap-1.5 justify-end z-20">
               {example.slopTags.map((tag, i) => (
                 <span key={i} className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-full border" style={{ backgroundColor: "rgba(239,68,68,0.08)", borderColor: "rgba(239,68,68,0.25)", color: "#f87171" }}>
                   {tag}
