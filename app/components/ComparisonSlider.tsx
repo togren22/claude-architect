@@ -358,16 +358,44 @@ export const ComparisonSlider = () => {
     }
   };
 
-  const handleMouseUp = () => {
+  const handleTouchStart = () => {
+    isDragging.current = true;
+    if (!hasInteracted) setHasInteracted(true);
+    
+    // Pause cycling on touch
+    isHoveringRef.current = true;
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+    if (cycleTimerRef.current) {
+      clearTimeout(cycleTimerRef.current);
+      cycleTimerRef.current = null;
+    }
+  };
+
+  const handleTouchEnd = () => {
     isDragging.current = false;
+    
+    // Resume cycling after touch ends (similar to mouse leave)
+    isHoveringRef.current = false;
+    // Don't reset position on touch end, just resume cycle
+    // setSliderPosition(15); // Optional: decide if we want snap back
+    // setFadeOpacity(1);
+    
+    // Resume cycle after a delay
+    if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
+    cycleTimerRef.current = setTimeout(() => {
+        startCycle();
+    }, 2200);
   };
 
   React.useEffect(() => {
     window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("touchend", handleMouseUp);
+    window.addEventListener("touchend", handleTouchEnd);
     return () => {
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchend", handleMouseUp);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
@@ -475,7 +503,7 @@ export const ComparisonSlider = () => {
         className="absolute inset-y-0 w-1 bg-white cursor-ew-resize hover:scale-x-150 transition-transform z-30"
         style={{ left: `${sliderPosition}%` }}
         onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
+        onTouchStart={handleTouchStart}
       >
         <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.3)]">
           <GripVertical className="w-5 h-5 text-black" />
