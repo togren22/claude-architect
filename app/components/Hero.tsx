@@ -57,7 +57,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-neutral-500 max-w-2xl"
         >
-          ChatGPT guesses. Claude builds.
+          GPT guesses. Claude builds.
         </motion.p>
 
         <motion.div
@@ -72,7 +72,7 @@ export const Hero = () => {
             rel="noopener noreferrer"
             className="group relative px-8 py-4 bg-[#da7756] text-white font-semibold rounded-full hover:bg-[#c46645] transition-all flex items-center justify-center gap-2"
           >
-            Deploy Intelligence
+            Try Claude Free
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           
