@@ -70,7 +70,7 @@ export const Hero = () => {
             href="https://claude.ai/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-[#1a1a18] text-white font-semibold rounded-full hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
+            className="group relative px-8 py-4 bg-[#da7756] text-white font-semibold rounded-full hover:bg-[#c46645] transition-all flex items-center justify-center gap-2"
           >
             Deploy Intelligence
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
