@@ -10,16 +10,22 @@ const examples = [
     prompt: "Build me a simple birthday card website for my mom",
     claudeLabel: "BirthdayCard.tsx",
     claudeType: "code" as const,
+    claudeTags: ["✓ Working code", "✓ Actually builds it"],
+    slopTags: ["✗ 387 words", "✗ Zero code written"],
   },
   {
     prompt: "Can you help me understand the themes in The Great Gatsby?",
     claudeLabel: "gatsby_analysis.md",
     claudeType: "prose" as const,
+    claudeTags: ["✓ Analytical", "✓ Asks a follow-up"],
+    slopTags: ["✗ Bullet points & emojis", "✗ \"Hope this helps! 😊\""],
   },
   {
     prompt: "Draft an executive summary for our Q3 sales report",
     claudeLabel: "Q3_Executive_Summary.md",
     claudeType: "prose" as const,
+    claudeTags: ["✓ Specific numbers", "✓ Clear recommendation"],
+    slopTags: ["✗ Asks for data you gave it", "✗ Never writes the summary"],
   },
 ];
 
@@ -28,12 +34,12 @@ const examples = [
 function ClaudeContent({ index }: { index: number }) {
   if (index === 0) {
     return (
-      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-[85%] sm:max-w-lg w-full bg-neutral-900/90 backdrop-blur-md rounded-lg border border-neutral-800 shadow-2xl z-10 overflow-hidden">
-        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-800 bg-neutral-900/50">
+      <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-          <span className="ml-2 text-neutral-600 text-[9px] font-mono">BirthdayCard.tsx</span>
+          <span className="ml-2 text-neutral-500 text-[9px] font-mono">BirthdayCard.tsx</span>
         </div>
         <pre className="p-3 sm:p-4 overflow-x-auto font-mono text-[9px] sm:text-[11px] leading-[1.7] text-neutral-300">
           <span className="text-purple-400">import</span> React <span className="text-purple-400">from</span> <span className="text-green-300">"react"</span>{"\n"}
@@ -55,12 +61,12 @@ function ClaudeContent({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-[85%] sm:max-w-lg w-full bg-neutral-900/90 backdrop-blur-md rounded-lg border border-neutral-800 shadow-2xl z-10 overflow-hidden">
-        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-800 bg-neutral-900/50">
+      <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-          <span className="ml-2 text-neutral-600 text-[9px] font-mono">gatsby_analysis.md</span>
+          <span className="ml-2 text-neutral-500 text-[9px] font-mono">gatsby_analysis.md</span>
         </div>
         <div className="p-3 sm:p-4 text-[10px] sm:text-[11px] leading-[1.7] text-neutral-300 space-y-3">
           <p>
@@ -78,12 +84,12 @@ function ClaudeContent({ index }: { index: number }) {
   }
 
   return (
-    <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-[85%] sm:max-w-lg w-full bg-neutral-900/90 backdrop-blur-md rounded-lg border border-neutral-800 shadow-2xl z-10 overflow-hidden">
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-800 bg-neutral-900/50">
+    <div className="absolute bottom-12 left-4 sm:bottom-14 sm:left-6 max-w-[85%] sm:max-w-lg w-full rounded-lg border border-neutral-700 shadow-2xl z-10 overflow-hidden" style={{ backgroundColor: "#2a2a27" }}>
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-neutral-700" style={{ backgroundColor: "#242420" }}>
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="ml-2 text-neutral-600 text-[9px] font-mono">Q3_Executive_Summary.md</span>
+        <span className="ml-2 text-neutral-500 text-[9px] font-mono">Q3_Executive_Summary.md</span>
       </div>
       <div className="p-3 sm:p-4 text-[10px] sm:text-[11px] leading-[1.7] text-neutral-300 space-y-3">
         <p>
@@ -381,9 +387,9 @@ export const ComparisonSlider = () => {
       >
         {/* Right Side: Claude's output */}
         <div className="absolute inset-0 flex">
-          <div className="w-full h-full bg-neutral-950 flex flex-col items-center justify-center overflow-hidden relative">
+          <div className="w-full h-full flex flex-col items-center justify-center overflow-hidden relative" style={{ backgroundColor: "#1e1e1c" }}>
             <div
-              className="absolute inset-0 z-0 opacity-[0.03]"
+              className="absolute inset-0 z-0 opacity-[0.04]"
               style={{
                 backgroundImage:
                   "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
@@ -392,12 +398,12 @@ export const ComparisonSlider = () => {
             />
 
             <div className="w-full h-full max-w-4xl relative flex flex-col z-10 p-6 sm:p-8">
-              <div className="absolute top-4 left-4 bg-neutral-900/90 text-blue-400 px-3 py-1 rounded-full text-xs font-mono border border-blue-500/50 z-10 backdrop-blur-md shadow-lg font-semibold tracking-tight">
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono border z-10 backdrop-blur-md shadow-lg font-semibold tracking-tight" style={{ backgroundColor: "rgba(30,30,28,0.9)", borderColor: "rgba(100,140,255,0.4)", color: "#60a5fa" }}>
                 Claude
               </div>
 
               <div className="absolute top-12 sm:top-14 left-4 sm:left-6 max-w-[60%] sm:max-w-sm">
-                <div className="bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 rounded-lg rounded-tl-none px-3 py-2 shadow-lg">
+                <div className="backdrop-blur-sm border border-neutral-600 rounded-lg rounded-tl-none px-3 py-2 shadow-lg" style={{ backgroundColor: "rgba(42,42,39,0.85)" }}>
                   <p className="text-neutral-300 text-[11px] sm:text-xs font-mono">
                     <span className="text-neutral-500">{">"} </span>
                     {example.prompt}
@@ -406,6 +412,15 @@ export const ComparisonSlider = () => {
               </div>
 
               <ClaudeContent index={currentExample} />
+
+              {/* Claude verdict tags */}
+              <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-6 flex flex-wrap gap-1.5 z-20">
+                {example.claudeTags.map((tag, i) => (
+                  <span key={i} className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-full border" style={{ backgroundColor: "rgba(34,197,94,0.12)", borderColor: "rgba(34,197,94,0.3)", color: "#4ade80" }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -432,6 +447,15 @@ export const ComparisonSlider = () => {
             </div>
 
             <SlopContent index={currentExample} />
+
+            {/* Slop verdict tags */}
+            <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-6 flex flex-wrap gap-1.5 justify-end z-20">
+              {example.slopTags.map((tag, i) => (
+                <span key={i} className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-full border" style={{ backgroundColor: "rgba(239,68,68,0.08)", borderColor: "rgba(239,68,68,0.25)", color: "#f87171" }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
