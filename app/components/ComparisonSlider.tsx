@@ -390,6 +390,10 @@ export const ComparisonSlider = () => {
     }, 2200);
   };
 
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
   React.useEffect(() => {
     window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("touchend", handleTouchEnd);
