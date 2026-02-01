@@ -9,8 +9,8 @@ export const Hero = () => {
     <section className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute -top-[40%] -left-[20%] w-[70%] h-[70%] rounded-full bg-[#1c1917]/20 blur-[120px]" />
-        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-[#292524]/10 blur-[100px]" />
+        <div className="absolute -top-[40%] -left-[20%] w-[70%] h-[70%] rounded-full bg-[#2e2a27]/20 blur-[120px]" />
+        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-[#3d3835]/10 blur-[100px]" />
       </div>
 
       <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-8 mb-16">

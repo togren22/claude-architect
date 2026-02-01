@@ -3,7 +3,7 @@ import { Nav } from "./components/Nav";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a09] selection:bg-neutral-800 selection:text-white">
+    <main className="min-h-screen bg-[#131110] selection:bg-neutral-800 selection:text-white">
       <Nav />
       <Hero />
       
