@@ -417,7 +417,7 @@ export const ComparisonSlider = () => {
             </div>
 
             {/* Claude content — flows in the space between prompt and tags */}
-            <div className="relative z-10 flex-1 flex flex-col justify-end overflow-hidden" style={{ paddingTop: "68px", paddingBottom: "36px", paddingLeft: "12px", paddingRight: "12px" }}>
+            <div className="relative z-10 flex-1 flex flex-col justify-end overflow-hidden" style={{ paddingTop: "80px", paddingBottom: "40px", paddingLeft: "12px", paddingRight: "12px" }}>
               <ClaudeContent index={currentExample} />
             </div>
 
@@ -454,7 +454,7 @@ export const ComparisonSlider = () => {
             </div>
 
             {/* Slop text — flows in the space between prompt and tags */}
-            <div className="flex-1 flex flex-col justify-start overflow-hidden" style={{ paddingTop: "72px", paddingBottom: "36px", paddingLeft: "16px", paddingRight: "16px" }}>
+            <div className="flex-1 flex flex-col justify-start overflow-hidden" style={{ paddingTop: "80px", paddingBottom: "40px", paddingLeft: "16px", paddingRight: "16px" }}>
               <SlopContent index={currentExample} />
             </div>
 
