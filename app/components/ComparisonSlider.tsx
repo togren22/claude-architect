@@ -434,7 +434,7 @@ export const ComparisonSlider = () => {
             />
 
             {/* Claude label */}
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 rounded-full text-xs font-mono border z-10 font-semibold tracking-tight" style={{ backgroundColor: "rgba(30,30,28,0.9)", borderColor: "rgba(100,140,255,0.4)", color: "#60a5fa" }}>
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-4 py-1.5 rounded-full text-sm font-mono border z-10 font-semibold tracking-tight" style={{ backgroundColor: "rgba(30,30,28,0.9)", borderColor: "rgba(100,140,255,0.4)", color: "#60a5fa" }}>
               Claude
             </div>
 
@@ -471,7 +471,7 @@ export const ComparisonSlider = () => {
         >
           <div className="w-full h-full relative flex flex-col" style={{ backgroundColor: "#faf8f5" }}>
             {/* Label */}
-            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-neutral-100 text-neutral-500 px-3 py-1 rounded-full text-xs font-mono border border-neutral-200 z-10">
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-neutral-100 text-neutral-500 px-4 py-1.5 rounded-full text-sm font-mono border border-neutral-200 z-10">
               Other AI
             </div>
 
