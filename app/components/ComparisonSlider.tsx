@@ -434,12 +434,12 @@ export const ComparisonSlider = () => {
             />
 
             {/* Claude label */}
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-4 py-1.5 rounded-full text-sm font-mono border z-10 font-semibold tracking-tight" style={{ backgroundColor: "#da7756", borderColor: "#c46645", color: "#ffffff" }}>
+            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-4 py-1.5 rounded-full text-sm font-mono border z-10 font-semibold tracking-tight" style={{ backgroundColor: "#da7756", borderColor: "#c46645", color: "#ffffff" }}>
               Claude
             </div>
 
             {/* Prompt bubble */}
-            <div className="absolute top-10 left-3 sm:top-12 sm:left-4 max-w-[60%] sm:max-w-sm z-10">
+            <div className="absolute top-12 left-2 sm:top-14 sm:left-3 max-w-[60%] sm:max-w-sm z-10">
               <div className="border border-neutral-600 rounded-lg rounded-tl-none px-2.5 py-1.5 sm:px-3 sm:py-2 shadow-lg" style={{ backgroundColor: "rgba(42,42,39,0.85)" }}>
                 <p className="text-neutral-300 text-[9px] sm:text-xs font-mono">
                   <span className="text-neutral-500">{">"} </span>
@@ -471,12 +471,12 @@ export const ComparisonSlider = () => {
         >
           <div className="w-full h-full relative flex flex-col" style={{ backgroundColor: "#faf8f5" }}>
             {/* Label */}
-            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-neutral-100 text-neutral-500 px-4 py-1.5 rounded-full text-sm font-mono border border-neutral-200 z-10">
+            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-neutral-100 text-neutral-500 px-4 py-1.5 rounded-full text-sm font-mono border border-neutral-200 z-10">
               Other AI
             </div>
 
             {/* Prompt bubble */}
-            <div className="absolute top-10 sm:top-12 right-3 sm:right-4 max-w-[60%] sm:max-w-sm z-10">
+            <div className="absolute top-12 sm:top-14 right-2 sm:right-3 max-w-[60%] sm:max-w-sm z-10">
               <div className="bg-white border border-neutral-200 rounded-lg rounded-tr-none px-2.5 py-1.5 sm:px-3 sm:py-2 shadow-sm">
                 <p className="text-neutral-500 text-[9px] sm:text-xs font-mono">
                   <span className="text-neutral-400">{">"} </span>
