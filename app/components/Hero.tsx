@@ -57,7 +57,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-neutral-500 max-w-2xl"
         >
-          GPT guesses. Claude builds.
+          Others guess. Claude builds.
         </motion.p>
 
         <motion.div
